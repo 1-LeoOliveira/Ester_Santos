@@ -27,7 +27,7 @@ Quase tudo o que muda com o tempo está em **um arquivo só**:
 | Textos das seções (dores, pilares, FAQ)   | `src/data/site.js`        |
 | Itens do menu                             | `src/data/site.js`        |
 | Cores e tipografia                        | `src/styles/base.css`     |
-| Símbolo da marca (SVG)                    | `src/components/Logo.jsx` |
+| Símbolo da marca (traço)                  | `src/data/marca.js`       |
 | Foto                                      | `public/img/`             |
 
 ## Identidade visual
@@ -45,17 +45,26 @@ Paleta oficial da marca, aplicada como variáveis CSS em `src/styles/base.css`:
 Tipografia: **Cormorant Garamond** (títulos) + **Jost** (texto corrido,
 substituta do Avenir Next, que não tem licença web gratuita).
 
-O símbolo da marca é desenhado em SVG puro (`src/components/Logo.jsx`), sem
-imagem: uma espiral contínua que gira sobre si mesma enquanto encolhe e, perto
-da base, é puxada até o bico de onde saem os caules em leque. O miolo se solta
-desse puxão e fecha num círculo limpo em volta do centro dourado. A geometria é
-gerada por fórmula, então a marca fica nítida em qualquer tamanho e dá para
-animá-la traço a traço na tela de abertura.
+O símbolo é o desenho da própria Ester. A arte que ela mandou é contorno
+preenchido (vetorização automática), e contorno preenchido não serve aqui por
+dois motivos: não dá para "desenhar" na animação da abertura, e o peso da linha
+fica congelado, impossível de engrossar nos tamanhos pequenos.
 
-Há duas versões do mesmo traço: a **cheia**, de 6 voltas, para quando a marca
-aparece grande (abertura, marcas-d água), e a **reduzida**, de 4 voltas, usada
-no cabeçalho e nos ícones. Abaixo de uns 60px a cheia empastela — por isso a
-redução. Quanto menor o símbolo, mais pesado o `strokeWidth` que ele recebe.
+Então a **linha de centro** foi extraída do contorno dela — rasterizar, fechar
+as falhas do tracejado, afinar (Zhang-Suen), seguir o traço atravessando os
+cruzamentos, suavizar em curvas. O desenho é dela ponto a ponto; só mudou a
+forma de guardar. O resultado está em `src/data/marca.js` e **não deve ser
+editado à mão** — se ela mandar uma arte nova, ele é regerado a partir dela.
+
+Abaixo de uns 40px o desenho cheio vira borrão: são seis voltas que se cruzam, e
+nesse tamanho não sobra pixel. Para o cabeçalho e os ícones existe uma
+**redução** — uma espiral de quatro voltas gerada por fórmula em
+`src/components/Logo.jsx`, ancorada nas mesmas proporções da arte dela (mesmo
+centro dourado, mesmos pontos, mesmo bico). É o que uma marca faz quando o
+desenho completo não cabe. Quanto menor o símbolo, mais pesado o `strokeWidth`.
+
+A pasta `marca/` tem o símbolo exportado em `.svg` solto, para uso fora do
+site (Instagram, documentos, impressão).
 
 ## Estrutura da página
 

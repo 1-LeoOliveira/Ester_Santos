@@ -1,50 +1,43 @@
 import { motion } from 'framer-motion';
+import { TRACO, CENTRO, PONTOS } from '../data/marca';
 
 /* ============================================================
    SÍMBOLO DA MARCA
-   Uma espiral contínua: a volta gira sobre si mesma enquanto
-   encolhe e, perto da base, é puxada até o bico — de onde
-   nascem os caules em leque. O miolo se solta do puxão e
-   fecha num círculo limpo em torno do centro dourado.
 
-   Duas versões do mesmo traço: a cheia (6 voltas), para quando
-   a marca aparece grande, e a reduzida (4 voltas), que é a que
-   ainda se lê a 28–34px. Abaixo de ~60px a cheia vira borrão.
+   O traço grande é o desenho da própria Ester, extraído da arte
+   original como linha de centro (ver src/data/marca.js).
+
+   Abaixo de uns 40px esse desenho vira borrão: são seis voltas que
+   se cruzam, e nesse tamanho não sobra pixel para elas. Para o
+   cabeçalho e os ícones existe uma redução — uma espiral de quatro
+   voltas gerada por fórmula, ancorada nas mesmas proporções dela
+   (mesmo centro dourado, mesmos pontos, mesmo bico), que é o que
+   uma marca faz quando o desenho cheio não cabe.
    ============================================================ */
 
 const TAU = Math.PI * 2;
 
-const COMUM = {
-  r0: 86, // raio da volta de fora
-  cy0: 94, // centro das voltas de fora
-  cy1: 117, // centro das voltas de dentro — onde fica o ponto dourado
-  descida: 1.15, // como o centro desce enquanto a espiral fecha
-  bicoX: 96,
-  bicoY: 196, // ponto onde os caules se encontram
-  sigma: 0.62, // quanto de cada volta é puxado para o bico
+// a redução nasce das medidas da arte dela, não de números soltos
+const REDUZIDA = {
+  voltas: 4,
+  r0: 84,
+  r1: 26,
+  cy0: 100,
+  cy1: CENTRO.y,
+  descida: 1.15,
+  bicoX: CENTRO.x,
+  bicoY: 202,
+  sigma: 0.62,
   forca: 0.96,
-  inicio: 1.0, // sobra de traço antes da primeira volta (o rabo da esquerda)
-  fim: 1.0, // sobra depois da última
-  densidade: 48, // amostras por volta
+  giro: 1.05,
+  corte0: 0.6,
+  corte1: 0.92,
+  inicio: 1.0,
+  fim: 1.0,
+  densidade: 48,
 };
 
-// giro: é o giro acumulado que abre o leque de caules.
-// corte0/corte1: onde o puxão afrouxa e o miolo volta a ser círculo.
-// forca: na cheia fica um pouco abaixo de 1 para os caules não empastelarem —
-// eles chegam ao bico separados, como no desenho. Na reduzida, pequena demais
-// para esse detalhe aparecer, o bico fechado sai mais limpo.
-const CHEIA = {
-  ...COMUM,
-  voltas: 6,
-  giro: 1.6,
-  r1: 22,
-  corte0: 0.68,
-  corte1: 0.95,
-  forca: 0.87,
-};
-const REDUZIDA = { ...COMUM, voltas: 4, giro: 1.05, r1: 26, corte0: 0.6, corte1: 0.92 };
-
-/** Pontos da espiral, em coordenadas do viewBox. */
+/** Pontos da espiral reduzida, no mesmo viewBox da arte dela. */
 function pontos(c) {
   const total = c.voltas * TAU;
   const tA = -c.inicio;
@@ -64,7 +57,6 @@ function pontos(c) {
     const s = Math.min(1, Math.max(0, (k - c.corte0) / (c.corte1 - c.corte0)));
     const forca = c.forca * (1 - s * s * (3 - 2 * s));
 
-    // distância angular até a base da volta
     let d = ((t % TAU) + TAU) % TAU;
     if (d > Math.PI) d -= TAU;
     const m = forca * Math.exp(-Math.pow(d / c.sigma, 2));
@@ -77,7 +69,7 @@ function pontos(c) {
   return saida;
 }
 
-/** Catmull-Rom convertido em cúbicas: a linha sai fluida, de traço só. */
+/** Catmull-Rom convertido em cúbicas. */
 function tracado(pts) {
   const n = (v) => v.toFixed(2);
   let d = `M${n(pts[0][0])} ${n(pts[0][1])}`;
@@ -93,32 +85,21 @@ function tracado(pts) {
   return d;
 }
 
-const CAMINHO = {
-  cheia: tracado(pontos(CHEIA)),
-  reduzida: tracado(pontos(REDUZIDA)),
-};
-
-const CENTRO = { x: COMUM.bicoX, y: COMUM.cy1, r: 12.5 };
-
-const PONTOS = [
-  { y: 209, r: 4 },
-  { y: 220, r: 3.3 },
-  { y: 230, r: 2.6 },
-];
+const TRACO_REDUZIDO = tracado(pontos(REDUZIDA));
 
 // o tempo do desenho conversa com a escrita do nome no Loader
-const DESENHO = { duracao: 1.7, atraso: 0.12 };
+const DESENHO = { duracao: 2, atraso: 0.12 };
 
 /**
  * Símbolo da marca.
- * `animado` desenha a espiral traço a traço (tela de abertura).
- * `reduzido` usa a versão de 4 voltas — obrigatória abaixo de ~60px.
+ * `animado` desenha o traço de ponta a ponta (tela de abertura).
+ * `reduzido` usa a espiral de 4 voltas — obrigatória abaixo de ~40px.
  */
 export function Simbolo({
   animado = false,
   reduzido = false,
   className,
-  strokeWidth = 2.3,
+  strokeWidth = 2.6,
 }) {
   const Path = animado ? motion.path : 'path';
   const Circle = animado ? motion.circle : 'circle';
@@ -126,7 +107,7 @@ export function Simbolo({
   return (
     <svg viewBox="0 0 200 250" fill="none" className={className} aria-hidden="true">
       <Path
-        d={reduzido ? CAMINHO.reduzida : CAMINHO.cheia}
+        d={reduzido ? TRACO_REDUZIDO : TRACO}
         stroke="currentColor"
         strokeWidth={strokeWidth}
         strokeLinecap="round"
@@ -156,7 +137,7 @@ export function Simbolo({
           ? {
               initial: { scale: 0, opacity: 0 },
               animate: { scale: 1, opacity: 1 },
-              transition: { duration: 0.9, ease: [0.34, 1.56, 0.64, 1], delay: 1.45 },
+              transition: { duration: 0.9, ease: [0.34, 1.56, 0.64, 1], delay: 1.6 },
               style: { transformOrigin: `${CENTRO.x}px ${CENTRO.y}px` },
             }
           : {})}
@@ -173,7 +154,7 @@ export function Simbolo({
               ? {
                   initial: { scale: 0, opacity: 0 },
                   animate: { scale: 1, opacity: 1 },
-                  transition: { duration: 0.5, delay: 1.7 + i * 0.1 },
+                  transition: { duration: 0.5, delay: 1.9 + i * 0.1 },
                   style: { transformOrigin: `${CENTRO.x}px ${ponto.y}px` },
                 }
               : {})}
@@ -185,7 +166,7 @@ export function Simbolo({
 }
 
 // quanto menor o símbolo, mais pesado precisa ser o traço
-const TRACO = { horizontal: 4.6, vertical: 3.4, compacta: 4.8 };
+const TRACO_POR_VARIANTE = { horizontal: 4.4, vertical: 3.2, compacta: 4.6 };
 
 /**
  * Assinatura completa da marca.
@@ -197,7 +178,7 @@ export default function Logo({ variante = 'horizontal', className = '' }) {
       <Simbolo
         className="logo__simbolo"
         reduzido
-        strokeWidth={TRACO[variante] ?? TRACO.horizontal}
+        strokeWidth={TRACO_POR_VARIANTE[variante] ?? TRACO_POR_VARIANTE.horizontal}
       />
       <span className="logo__texto">
         <span className="logo__nome">Ester Santos</span>

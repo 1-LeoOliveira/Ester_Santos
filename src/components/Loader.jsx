@@ -74,7 +74,7 @@ export default function Loader({ onFinish }) {
             exit={{ opacity: 0, y: -26, transition: { duration: 0.55, ease: EASE } }}
           >
             <div className="loader__mark">
-              <Simbolo animado strokeWidth={2.8} />
+              <Simbolo animado strokeWidth={2.6} />
             </div>
 
             <p className="loader__nome">
