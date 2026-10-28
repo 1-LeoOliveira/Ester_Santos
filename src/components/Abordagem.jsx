@@ -7,7 +7,7 @@ export default function Abordagem() {
   return (
     <section className="section section--escura abordagem" id="abordagem">
       <div className="abordagem__fundo" aria-hidden="true">
-        <Simbolo className="abordagem__marca" strokeWidth={0.9} />
+        <Simbolo className="abordagem__marca" strokeWidth={0.8} />
       </div>
 
       <div className="shell abordagem__shell">
@@ -34,7 +34,7 @@ export default function Abordagem() {
               delay={0.07 * i}
             >
               <span className="pilar__marca" aria-hidden="true">
-                <Simbolo strokeWidth={3.4} />
+                <Simbolo reduzido strokeWidth={4.6} />
               </span>
               <h3 className="pilar__titulo">{pilar.titulo}</h3>
               <p className="pilar__texto">{pilar.texto}</p>

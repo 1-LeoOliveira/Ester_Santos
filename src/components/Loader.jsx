@@ -5,7 +5,7 @@ import { site } from '../data/site';
 import { Simbolo } from './Logo';
 
 const LETRAS = site.nome.split('');
-const INICIO_ESCRITA = 1.15; // o nome começa depois que o símbolo se fecha
+const INICIO_ESCRITA = 1.3; // o nome começa enquanto a espiral fecha
 const PASSO_LETRA = 0.075;
 const FIM_ESCRITA = INICIO_ESCRITA + LETRAS.length * PASSO_LETRA;
 
@@ -25,7 +25,7 @@ export default function Loader({ onFinish }) {
     window.addEventListener('load', marcarCarregado);
 
     const inicio = performance.now();
-    const minimo = 2600; // tempo mínimo para a escrita do nome terminar
+    const minimo = 2900; // tempo mínimo para a espiral e a escrita terminarem
     let frame;
 
     const tick = (agora) => {
@@ -74,7 +74,7 @@ export default function Loader({ onFinish }) {
             exit={{ opacity: 0, y: -26, transition: { duration: 0.55, ease: EASE } }}
           >
             <div className="loader__mark">
-              <Simbolo animado />
+              <Simbolo animado strokeWidth={2.8} />
             </div>
 
             <p className="loader__nome">

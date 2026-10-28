@@ -23,7 +23,7 @@ export default function Hero({ pronto }) {
   return (
     <section className="hero" id="topo" ref={ref}>
       <div className="hero__fundo" aria-hidden="true">
-        <Simbolo className="hero__marca-dagua" strokeWidth={1.1} />
+        <Simbolo className="hero__marca-dagua" strokeWidth={0.8} />
       </div>
 
       <div className="hero__shell shell">

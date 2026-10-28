@@ -13,7 +13,7 @@
 }
 
 .logo__simbolo {
-  width: 34px;
+  width: 42px;
   flex: none;
 }
 
@@ -58,7 +58,7 @@
 }
 
 .logo--vertical .logo__simbolo {
-  width: 58px;
+  width: 66px;
 }
 
 .logo--vertical .logo__texto {
@@ -66,7 +66,7 @@
 }
 
 .logo--compacta .logo__simbolo {
-  width: 28px;
+  width: 34px;
 }
 
 /* ---------- Loader ---------- */
@@ -116,7 +116,7 @@
 }
 
 .loader__mark {
-  width: clamp(76px, 15vw, 104px);
+  width: clamp(98px, 18vw, 132px);
   color: var(--terra);
   margin-bottom: 26px;
 }

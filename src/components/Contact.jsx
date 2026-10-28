@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section className="section section--escura contato" id="contato">
       <div className="contato__fundo" aria-hidden="true">
-        <Simbolo className="contato__marca" strokeWidth={0.9} />
+        <Simbolo className="contato__marca" strokeWidth={0.8} />
       </div>
 
       <div className="shell contato__shell">

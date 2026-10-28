@@ -35,7 +35,7 @@ export default function About() {
           </motion.div>
 
           <Reveal className="sobre__selo" delay={0.2}>
-            <Simbolo className="sobre__selo-simbolo" strokeWidth={2.2} />
+            <Simbolo className="sobre__selo-simbolo" reduzido strokeWidth={4.6} />
             <span>
               Acolher o que transforma.
               <br />

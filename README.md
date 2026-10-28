@@ -45,14 +45,22 @@ Paleta oficial da marca, aplicada como variáveis CSS em `src/styles/base.css`:
 Tipografia: **Cormorant Garamond** (títulos) + **Jost** (texto corrido,
 substituta do Avenir Next, que não tem licença web gratuita).
 
-O símbolo da marca — anéis concêntricos que convergem para o centro dourado — é
-desenhado em SVG puro (`src/components/Logo.jsx`), sem imagem. Isso deixa ele
-nítido em qualquer tamanho e permite animá-lo traço a traço na tela de abertura.
+O símbolo da marca é desenhado em SVG puro (`src/components/Logo.jsx`), sem
+imagem: uma espiral contínua que gira sobre si mesma enquanto encolhe e, perto
+da base, é puxada até o bico de onde saem os caules em leque. O miolo se solta
+desse puxão e fecha num círculo limpo em volta do centro dourado. A geometria é
+gerada por fórmula, então a marca fica nítida em qualquer tamanho e dá para
+animá-la traço a traço na tela de abertura.
+
+Há duas versões do mesmo traço: a **cheia**, de 6 voltas, para quando a marca
+aparece grande (abertura, marcas-d água), e a **reduzida**, de 4 voltas, usada
+no cabeçalho e nos ícones. Abaixo de uns 60px a cheia empastela — por isso a
+redução. Quanto menor o símbolo, mais pesado o `strokeWidth` que ele recebe.
 
 ## Estrutura da página
 
-1. **Tela de abertura** — o símbolo é desenhado, o nome "Ester Santos" é escrito
-   letra a letra com cursor, e a cortina sobe.
+1. **Tela de abertura** — a espiral é desenhada de ponta a ponta, o nome "Ester
+   Santos" é escrito letra a letra com cursor, e a cortina sobe.
 2. **Hero** — "O caminho de volta ao centro" + foto + CTA de WhatsApp.
 3. **Faixa** — palavras-chave da marca em movimento contínuo.
 4. **Sobre** — apresentação, credenciais e o diferencial da escuta.

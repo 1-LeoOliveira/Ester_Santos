@@ -252,7 +252,7 @@
 }
 
 .sobre__selo-simbolo {
-  width: 34px;
+  width: 40px;
   flex: none;
   color: var(--terra);
 }
@@ -436,7 +436,7 @@
 
 .pilar__marca {
   display: block;
-  width: 34px;
+  width: 40px;
   margin-bottom: 20px;
   color: var(--ouro-claro);
 }
