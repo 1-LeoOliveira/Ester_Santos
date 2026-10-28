@@ -1,0 +1,73 @@
+import Reveal from './Reveal';
+import { Simbolo } from './Logo';
+import { site, whatsappUrl, telUrl } from '../data/site';
+import { IconWhatsapp, IconArrowRight, IconMonitor, IconSpark } from './Icons';
+
+export default function Contact() {
+  return (
+    <section className="section section--escura contato" id="contato">
+      <div className="contato__fundo" aria-hidden="true">
+        <Simbolo className="contato__marca" strokeWidth={0.9} />
+      </div>
+
+      <div className="shell contato__shell">
+        <Reveal as="p" className="eyebrow eyebrow--claro">
+          <span className="eyebrow__dot" />
+          Primeiro passo
+        </Reveal>
+
+        <Reveal as="h2" className="h2 h2--claro contato__titulo" delay={0.05}>
+          Você não precisa ter tudo claro para <em>começar</em>
+        </Reveal>
+
+        <Reveal as="p" className="contato__lead" delay={0.1}>
+          Basta querer compreender. Me mande uma mensagem no WhatsApp e
+          conversamos sobre o que te trouxe até aqui.
+        </Reveal>
+
+        <Reveal className="contato__acoes" delay={0.16}>
+          <a
+            className="btn btn--ouro"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <IconWhatsapp />
+            Falar no WhatsApp
+          </a>
+          <a className="btn btn--ghost btn--claro" href={telUrl}>
+            {site.telefone.exibicao}
+            <IconArrowRight />
+          </a>
+        </Reveal>
+
+        <Reveal className="contato__cartoes" delay={0.22}>
+          <div className="cartao">
+            <IconMonitor />
+            <strong>Atendimento online</strong>
+            <span>
+              Por videochamada, de onde você estiver. A mesma constância de um
+              consultório, com a flexibilidade que a sua rotina exige.
+            </span>
+          </div>
+          <div className="cartao">
+            <IconSpark />
+            <strong>Mulheres adultas</strong>
+            <span>
+              Um espaço construído para quem atravessa transições de identidade
+              — na maternidade, na carreira e nos vínculos.
+            </span>
+          </div>
+          <div className="cartao">
+            <IconWhatsapp />
+            <strong>Resposta pessoal</strong>
+            <span>
+              Quem responde a sua mensagem sou eu. Sem atendente, sem formulário
+              automático e sem compromisso.
+            </span>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

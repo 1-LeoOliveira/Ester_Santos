@@ -1,0 +1,464 @@
+/* ============================================================
+   LOGO · LOADER · HEADER · MENU · MARQUEE · FLUTUANTE
+   ============================================================ */
+
+/* ---------- Logo ---------- */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--terra);
+  line-height: 1;
+}
+
+.logo__simbolo {
+  width: 34px;
+  flex: none;
+}
+
+.logo__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.logo__nome {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  color: var(--terra);
+}
+
+.logo__cargo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--tinta-60);
+  white-space: nowrap;
+}
+
+.logo__ponto {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ouro);
+  flex: none;
+}
+
+.logo--vertical {
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+
+.logo--vertical .logo__simbolo {
+  width: 58px;
+}
+
+.logo--vertical .logo__texto {
+  align-items: center;
+}
+
+.logo--compacta .logo__simbolo {
+  width: 28px;
+}
+
+/* ---------- Loader ---------- */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: var(--areia);
+  overflow: hidden;
+}
+
+.loader__aura {
+  position: absolute;
+  width: min(90vw, 760px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(226, 188, 106, 0.22),
+    rgba(226, 188, 106, 0) 68%
+  );
+  animation: pulsar 5s var(--ease) infinite;
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.loader__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 24px;
+  text-align: center;
+}
+
+.loader__mark {
+  width: clamp(76px, 15vw, 104px);
+  color: var(--terra);
+  margin-bottom: 26px;
+}
+
+.loader__nome {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 1.4rem + 5vw, 4.6rem);
+  line-height: 1;
+  color: var(--terra);
+  letter-spacing: 0.005em;
+}
+
+.loader__escrita {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.loader__letra {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+.loader__caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.78em;
+  margin-left: 0.08em;
+  background: var(--ouro);
+  transform: translateY(0.02em);
+}
+
+.loader__cargo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 0;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--marrom);
+}
+
+.loader__cargo-ponto {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ouro);
+  flex: none;
+}
+
+.loader__abordagem {
+  margin: 8px 0 0;
+  font-size: 0.64rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--terracota);
+}
+
+.loader__bar {
+  width: min(230px, 54vw);
+  height: 2px;
+  margin-top: 36px;
+  background: rgba(90, 67, 58, 0.16);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.loader__bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--terra), var(--ouro));
+  border-radius: inherit;
+}
+
+/* ---------- Barra de progresso de leitura ---------- */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 120;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--terra), var(--ouro));
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  transition: background 0.5s var(--ease), box-shadow 0.5s var(--ease),
+    backdrop-filter 0.5s var(--ease);
+}
+
+.header.is-compact {
+  background: rgba(251, 246, 239, 0.86);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--linha), 0 18px 40px -34px rgba(61, 42, 36, 0.6);
+}
+
+.header__shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.header__logo {
+  flex: none;
+}
+
+.header__nav {
+  display: none;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__link {
+  position: relative;
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: var(--tinta-80);
+  transition: color 0.3s var(--ease);
+}
+
+.header__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: var(--ouro);
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+  transition: transform 0.45s var(--ease);
+}
+
+.header__link:hover {
+  color: var(--terra);
+}
+
+.header__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: 0 50%;
+}
+
+.header__acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__cta {
+  display: none;
+}
+
+.header__burger {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--tinta-12);
+  color: var(--terra);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.header__burger:hover {
+  border-color: var(--terra);
+  background: rgba(164, 58, 52, 0.05);
+}
+
+.header__burger .ico {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 900px) {
+  .header__nav {
+    display: flex;
+  }
+
+  .header__cta {
+    display: inline-flex;
+  }
+
+  .header__burger {
+    display: none;
+  }
+}
+
+/* ---------- Menu mobile ---------- */
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+  padding: calc(var(--header-h) + 24px) var(--gutter) 48px;
+  background: var(--areia);
+}
+
+.menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu__link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-block: 12px;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 1.2rem + 3.4vw, 2.8rem);
+  font-weight: 400;
+  color: var(--terra-escuro);
+  border-bottom: 1px solid var(--linha);
+  transition: color 0.3s var(--ease), padding-left 0.4s var(--ease);
+}
+
+.menu__link:hover {
+  color: var(--terra);
+  padding-left: 8px;
+}
+
+.menu__num {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--ouro);
+}
+
+.menu__cta {
+  align-self: flex-start;
+}
+
+/* ---------- Marquee ---------- */
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding-block: 22px;
+  background: var(--terra);
+  color: var(--areia);
+}
+
+.marquee__trilha {
+  display: flex;
+  width: max-content;
+  animation: deslizar 46s linear infinite;
+}
+
+.marquee__grupo {
+  display: flex;
+  align-items: center;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.6rem);
+  font-style: italic;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.marquee__sep {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ouro-claro);
+  flex: none;
+}
+
+@keyframes deslizar {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__trilha {
+    animation: none;
+  }
+}
+
+/* ---------- Botão flutuante ---------- */
+
+.flutuante {
+  position: fixed;
+  right: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vw, 28px);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--terra), var(--terra-escuro));
+  color: var(--creme);
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 18px 40px -16px rgba(92, 31, 28, 0.85);
+  transition: box-shadow 0.4s var(--ease);
+}
+
+.flutuante:hover {
+  box-shadow: 0 24px 50px -18px rgba(92, 31, 28, 0.95);
+}
+
+.flutuante .ico {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.flutuante__texto {
+  display: none;
+}
+
+@media (min-width: 560px) {
+  .flutuante__texto {
+    display: inline;
+  }
+}
