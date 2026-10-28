@@ -17,11 +17,12 @@ export default function Abordagem() {
             A abordagem
           </Reveal>
           <Reveal as="h2" className="h2 h2--claro" delay={0.05}>
-            Psicologia Analítica <em>Junguiana</em>
+            Psicologia Analítica, de <em>Carl Gustav Jung</em>
           </Reveal>
           <Reveal as="p" className="section__lead" delay={0.1}>
-            Uma clínica que trabalha com o que está por baixo do visível — e que
-            devolve isso em forma de escolha consciente na sua vida concreta.
+            Uma perspectiva que considera a singularidade da sua história e busca
+            compreender os significados das suas experiências, os conflitos
+            internos e os padrões que se repetem.
           </Reveal>
         </div>
 

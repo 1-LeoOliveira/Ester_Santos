@@ -4,7 +4,7 @@ import { IconWhatsapp, IconMonitor, IconCalendar, IconShield } from './Icons';
 
 const CONDICOES = [
   { Icone: IconMonitor, titulo: 'Online', texto: site.atendimento.formato },
-  { Icone: IconCalendar, titulo: 'Encontros semanais', texto: 'Horário combinado e constante' },
+  { Icone: IconCalendar, titulo: 'Encontros regulares', texto: 'No ritmo de cada processo' },
   { Icone: IconShield, titulo: 'Particular', texto: 'Sigilo integral sobre o processo' },
 ];
 
@@ -21,8 +21,9 @@ export default function Processo() {
             Do primeiro contato ao <em>processo</em>
           </Reveal>
           <Reveal as="p" className="section__lead" delay={0.1}>
-            Sem mistério e sem burocracia. Você sabe exatamente o que esperar de
-            cada etapa antes mesmo de começar.
+            Não é preciso chegar com tudo organizado nem saber explicar
+            exatamente o que está acontecendo. Veja o que esperar de cada etapa
+            antes mesmo de começar.
           </Reveal>
         </div>
 

@@ -8,7 +8,7 @@ import { IconWhatsapp } from './Icons';
 const CREDENCIAIS = [
   { valor: site.crp, rotulo: 'Registro profissional' },
   { valor: 'Pós-graduação', rotulo: 'em Psicologia Clínica' },
-  { valor: 'Junguiana', rotulo: 'Psicologia Analítica' },
+  { valor: 'Analítica', rotulo: 'Abordagem de Carl Gustav Jung' },
   { valor: 'Online', rotulo: 'de onde você estiver' },
 ];
 
@@ -37,9 +37,9 @@ export default function About() {
           <Reveal className="sobre__selo" delay={0.2}>
             <Simbolo className="sobre__selo-simbolo" justo strokeWidth={4.2} />
             <span>
-              Acolher o que transforma.
+              Transições que transformam.
               <br />
-              Guiar o que permanece.
+              Identidades que se reconstroem.
             </span>
           </Reveal>
         </div>
@@ -51,30 +51,31 @@ export default function About() {
           </Reveal>
 
           <Reveal as="h2" className="h2" delay={0.05}>
-            Uma escuta que investiga a <em>identidade</em> sem perder a vida real
-            de vista
+            Compreender a mulher para além dos <em>papéis</em> que ela
+            desempenha
           </Reveal>
 
           <Reveal delay={0.12}>
             <p>
               Sou <strong>{site.nome}</strong>, psicóloga clínica com
-              pós-graduação em Psicologia Clínica e atuação orientada pela
-              Psicologia Analítica Junguiana. Meu trabalho é com mulheres adultas
-              que atravessam mudanças significativas na vida e precisam
-              compreender quem são, o que mudou em si mesmas e quais sentidos
-              desejam construir para a próxima etapa da sua trajetória.
+              pós-graduação em Psicologia Clínica e orientação fundamentada na
+              Psicologia Analítica, desenvolvida por Carl Gustav Jung. Minha
+              atuação é voltada a mulheres adultas que atravessam períodos de
+              transição, questionamento e reconstrução da identidade.
             </p>
             <p>
-              A profundidade não me afasta do concreto. As relações, a
-              maternidade, a carreira, as escolhas e as contradições de ser
-              mulher adulta entram na sala exatamente como são — porque é ali,
-              no meio da vida acontecendo, que a identidade se reconstrói.
+              Meu posicionamento clínico parte do interesse em compreender a
+              mulher para além dos papéis que desempenha e das expectativas que
+              aprendeu a atender. Acredito na importância de olhar para a
+              história de cada pessoa, suas contradições, seus vínculos, seus
+              desejos e as transformações que atravessam sua identidade.
             </p>
             <p>
-              Muitas chegam depois de anos adiando. Não por falta de vontade, mas
-              pela dificuldade de reconhecer a si mesma em meio aos papéis, às
-              expectativas e às mudanças da vida adulta. Esse reconhecimento é o
-              ponto de partida do nosso encontro.
+              Busco integrar profundidade na compreensão da subjetividade com
+              atenção às questões concretas da vida cotidiana — maternidade,
+              carreira, relacionamentos, autonomia e pertencimento. Um espaço em
+              que a mulher possa olhar para si com mais consciência e explorar
+              novas formas de se relacionar consigo mesma.
             </p>
           </Reveal>
 

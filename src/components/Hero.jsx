@@ -65,9 +65,9 @@ export default function Hero({ pronto }) {
             animate={animar === 'show' ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.62, ease: EASE }}
           >
-            Acompanhamento psicológico para mulheres adultas em processos de
-            transição e reconstrução da identidade — na maternidade, na carreira
-            e em cada contexto que pede uma nova versão de você.
+            Acompanhamento psicológico para mulheres adultas que atravessam
+            períodos de transição, questionamento e reconstrução da identidade —
+            na maternidade, na carreira, nos relacionamentos e no pertencimento.
           </motion.p>
 
           <motion.div

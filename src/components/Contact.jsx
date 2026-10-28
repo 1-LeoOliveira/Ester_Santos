@@ -17,11 +17,13 @@ export default function Contact() {
         </Reveal>
 
         <Reveal as="h2" className="h2 h2--claro contato__titulo" delay={0.05}>
-          Você não precisa ter tudo claro para <em>começar</em>
+          Você não precisa ter todas as <em>respostas</em> para começar a olhar
+          para si
         </Reveal>
 
         <Reveal as="p" className="contato__lead" delay={0.1}>
-          Basta querer compreender. Me mande uma mensagem no WhatsApp e
+          Há momentos em que a vida muda, os papéis se transformam e aquilo que
+          antes fazia sentido passa a ser questionado. Me mande uma mensagem e
           conversamos sobre o que te trouxe até aqui.
         </Reveal>
 
@@ -46,16 +48,17 @@ export default function Contact() {
             <IconMonitor />
             <strong>Atendimento online</strong>
             <span>
-              Por videochamada, de onde você estiver. A mesma constância de um
-              consultório, com a flexibilidade que a sua rotina exige.
+              Por videochamada, de onde você estiver. Um espaço com privacidade,
+              acolhimento e respeito à singularidade de cada pessoa.
             </span>
           </div>
           <div className="cartao">
             <IconSpark />
             <strong>Mulheres adultas</strong>
             <span>
-              Um espaço construído para quem atravessa transições de identidade
-              — na maternidade, na carreira e nos vínculos.
+              Para quem atravessa transições de vida e vivencia questionamentos
+              sobre identidade, maternidade, carreira, relacionamentos e
+              pertencimento.
             </span>
           </div>
           <div className="cartao">

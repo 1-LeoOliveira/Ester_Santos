@@ -12,11 +12,12 @@ export default function Dores() {
             Para quem é
           </Reveal>
           <Reveal as="h2" className="h2" delay={0.05}>
-            Talvez você <em>reconheça</em> alguma destas frases
+            Talvez você <em>reconheça</em> alguma destas situações
           </Reveal>
           <Reveal as="p" className="section__lead" delay={0.1}>
-            São os relatos que mais chegam ao consultório. Se alguma delas soou
-            familiar, você está no lugar certo.
+            Nem sempre é possível nomear o que se sente. Algumas mulheres chegam
+            com uma queixa específica; outras percebem apenas que algo já não faz
+            sentido como antes.
           </Reveal>
         </div>
 
@@ -37,8 +38,9 @@ export default function Dores() {
 
         <Reveal className="dores__fecho" delay={0.12}>
           <p>
-            Nada disso precisa virar um diagnóstico para merecer atenção.
-            Querer compreender a si mesma já é motivo suficiente para começar.
+            A terapia pode ser procurada não apenas em momentos de crise, mas
+            também quando existe o desejo de compreender melhor a própria
+            experiência e construir novas possibilidades.
           </p>
           <a
             className="btn btn--terra"
