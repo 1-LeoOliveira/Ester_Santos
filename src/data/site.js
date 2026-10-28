@@ -12,11 +12,9 @@ export const site = {
   tagline: 'Acolher o que transforma. Guiar o que permanece.',
   manifesto: 'O caminho de volta ao centro',
 
-  // ⚠️ Confira este número: o original veio como "91 9117-5199" (8 dígitos).
-  // Celulares do Pará têm 9 dígitos, então foi assumido o 9 inicial.
   telefone: {
-    e164: '5591991175199',
-    exibicao: '(91) 99117-5199',
+    e164: '5591993965199',
+    exibicao: '(91) 99396-5199',
   },
 
   atendimento: {

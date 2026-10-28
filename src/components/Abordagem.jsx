@@ -34,7 +34,7 @@ export default function Abordagem() {
               delay={0.07 * i}
             >
               <span className="pilar__marca" aria-hidden="true">
-                <Simbolo reduzido strokeWidth={4.6} />
+                <Simbolo justo strokeWidth={4.2} />
               </span>
               <h3 className="pilar__titulo">{pilar.titulo}</h3>
               <p className="pilar__texto">{pilar.texto}</p>

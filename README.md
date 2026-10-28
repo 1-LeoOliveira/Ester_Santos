@@ -56,12 +56,14 @@ cruzamentos, suavizar em curvas. O desenho é dela ponto a ponto; só mudou a
 forma de guardar. O resultado está em `src/data/marca.js` e **não deve ser
 editado à mão** — se ela mandar uma arte nova, ele é regerado a partir dela.
 
-Abaixo de uns 40px o desenho cheio vira borrão: são seis voltas que se cruzam, e
-nesse tamanho não sobra pixel. Para o cabeçalho e os ícones existe uma
-**redução** — uma espiral de quatro voltas gerada por fórmula em
-`src/components/Logo.jsx`, ancorada nas mesmas proporções da arte dela (mesmo
-centro dourado, mesmos pontos, mesmo bico). É o que uma marca faz quando o
-desenho completo não cabe. Quanto menor o símbolo, mais pesado o `strokeWidth`.
+É o mesmo traço em todo tamanho — não há versão simplificada da marca. Onde o
+símbolo aparece pequeno (cabeçalho, selos, ícones dos pilares), o componente
+recebe `justo`, que recorta a caixa nos limites do traço: sem a margem morta
+ele desenha uns 40% maior na mesma altura, e é isso que o mantém legível ali.
+Quanto menor o símbolo, mais pesado o `strokeWidth` que ele recebe.
+
+A única exceção é o favicon: em 16px nenhum desenho de seis voltas sobrevive,
+então ali vai uma redução de três voltas gerada por fórmula.
 
 A pasta `marca/` tem o símbolo exportado em `.svg` solto, para uso fora do
 site (Instagram, documentos, impressão).
@@ -82,10 +84,6 @@ site (Instagram, documentos, impressão).
 
 ## Pontos que dependem de confirmação da Ester
 
-- **Telefone.** O número informado foi `91 9117-5199`, que tem 8 dígitos após o
-  DDD. Celulares do Pará têm 9. Foi assumido **(91) 99117-5199**
-  (`5591991175199`). Se estiver errado, corrija em `src/data/site.js` — o site
-  inteiro acompanha.
 - **Foto.** A imagem enviada tem uma placa de mesa escrita "Dra. Silva" no canto
   inferior. O enquadramento das duas aparições corta essa área, mas vale trocar
   por uma foto definitiva quando houver.
