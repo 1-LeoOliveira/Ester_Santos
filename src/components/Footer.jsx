@@ -1,6 +1,6 @@
 import Logo from './Logo';
-import { navLinks, site, whatsappUrl } from '../data/site';
-import { IconWhatsapp } from './Icons';
+import { navLinks, site, whatsappUrl, instagramUrl } from '../data/site';
+import { IconWhatsapp, IconInstagram } from './Icons';
 
 export default function Footer() {
   const ano = new Date().getFullYear();
@@ -32,6 +32,16 @@ export default function Footer() {
           >
             <IconWhatsapp />
             {site.telefone.exibicao}
+          </a>
+
+          <a
+            className="rodape__zap"
+            href={instagramUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <IconInstagram />
+            @{site.instagram}
           </a>
           <p>
             {site.atendimento.formato}

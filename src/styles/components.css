@@ -286,6 +286,29 @@
   display: none;
 }
 
+.header__social {
+  display: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--tinta-12);
+  color: var(--terra);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+
+.header__social:hover {
+  border-color: var(--terra);
+  background: rgba(164, 58, 52, 0.05);
+  transform: translateY(-1px);
+}
+
+.header__social .ico {
+  width: 18px;
+  height: 18px;
+}
+
 .header__burger {
   display: grid;
   place-items: center;
@@ -314,6 +337,10 @@
 
   .header__cta {
     display: inline-flex;
+  }
+
+  .header__social {
+    display: grid;
   }
 
   .header__burger {
@@ -368,6 +395,27 @@
 
 .menu__cta {
   align-self: flex-start;
+}
+
+.menu__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--terra);
+  transition: color 0.3s var(--ease), transform 0.35s var(--ease);
+}
+
+.menu__social:hover {
+  color: var(--terracota);
+  transform: translateX(3px);
+}
+
+.menu__social .ico {
+  width: 18px;
+  height: 18px;
 }
 
 /* ---------- Marquee ---------- */

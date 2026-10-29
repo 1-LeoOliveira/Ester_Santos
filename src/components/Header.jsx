@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { EASE } from '../animations';
-import { navLinks, whatsappUrl } from '../data/site';
-import { IconWhatsapp, IconMenu, IconClose } from './Icons';
+import { navLinks, site, whatsappUrl, instagramUrl } from '../data/site';
+import { IconWhatsapp, IconInstagram, IconMenu, IconClose } from './Icons';
 import Logo from './Logo';
 
 export default function Header() {
@@ -44,6 +44,16 @@ export default function Header() {
           </nav>
 
           <div className="header__acoes">
+            <a
+              className="header__social"
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`Instagram de ${site.nome}`}
+            >
+              <IconInstagram />
+            </a>
+
             <a
               className="btn btn--terra btn--sm header__cta"
               href={whatsappUrl}
@@ -105,6 +115,20 @@ export default function Header() {
             >
               <IconWhatsapp />
               Agendar conversa
+            </motion.a>
+
+            <motion.a
+              className="menu__social"
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              onClick={() => setMenuAberto(false)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.58, ease: EASE }}
+            >
+              <IconInstagram />
+              @{site.instagram}
             </motion.a>
           </motion.div>
         )}

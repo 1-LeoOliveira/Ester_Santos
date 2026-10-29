@@ -17,6 +17,14 @@ export const IconWhatsapp = (props) => (
   </svg>
 );
 
+export const IconInstagram = (props) => (
+  <svg {...base} {...props}>
+    <rect x="3" y="3" width="18" height="18" rx="5.2" />
+    <circle cx="12" cy="12" r="4.1" />
+    <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none" />
+  </svg>
+);
+
 export const IconArrowDown = (props) => (
   <svg {...base} {...props}>
     <path d="M12 5v14M19 12l-7 7-7-7" />

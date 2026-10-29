@@ -22,6 +22,11 @@ export const site = {
     exibicao: '(91) 99396-5199',
   },
 
+  /* Só o usuário. O link é montado abaixo, sem os parâmetros de
+     rastreio que vêm colados quando se copia do aplicativo: eles
+     pertencem à sessão de quem copiou, não ao perfil. */
+  instagram: 'psi_estersantos',
+
   atendimento: {
     formato: 'Atendimento 100% online',
     publico: 'Mulheres adultas',
@@ -37,6 +42,8 @@ export const whatsappUrl = `https://wa.me/${site.telefone.e164}?text=${encodeURI
 )}`;
 
 export const telUrl = `tel:+${site.telefone.e164}`;
+
+export const instagramUrl = `https://www.instagram.com/${site.instagram}`;
 
 /* ---------- Navegação ---------- */
 

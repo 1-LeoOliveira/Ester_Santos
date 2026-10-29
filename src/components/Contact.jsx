@@ -1,7 +1,13 @@
 import Reveal from './Reveal';
 import { Simbolo } from './Logo';
-import { site, whatsappUrl, telUrl } from '../data/site';
-import { IconWhatsapp, IconArrowRight, IconMonitor, IconSpark } from './Icons';
+import { site, whatsappUrl, telUrl, instagramUrl } from '../data/site';
+import {
+  IconWhatsapp,
+  IconInstagram,
+  IconArrowRight,
+  IconMonitor,
+  IconSpark,
+} from './Icons';
 
 export default function Contact() {
   return (
@@ -40,6 +46,15 @@ export default function Contact() {
           <a className="btn btn--ghost btn--claro" href={telUrl}>
             {site.telefone.exibicao}
             <IconArrowRight />
+          </a>
+          <a
+            className="btn btn--ghost btn--claro"
+            href={instagramUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <IconInstagram />
+            @{site.instagram}
           </a>
         </Reveal>
 
