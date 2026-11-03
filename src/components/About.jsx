@@ -37,9 +37,9 @@ export default function About() {
           <Reveal className="sobre__selo" delay={0.2}>
             <Simbolo className="sobre__selo-simbolo" justo strokeWidth={4.2} />
             <span>
-              Transições que transformam.
+              A coragem de mudar por dentro.
               <br />
-              Identidades que se reconstroem.
+              A arte de se tornar quem você é.
             </span>
           </Reveal>
         </div>
